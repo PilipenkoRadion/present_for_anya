@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>From Radion to Anya</title>
+<title>Люблю тебя</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -344,7 +344,7 @@
 
   <div class="card" id="card">
     <div id="mainScreen">
-      <h1>Для газа</h1>
+      <h1>Я тебя люблю ❤️</h1>
       <p class="sub">Насколько сильно ты хочешь послать меня нахуй?</p>
       <div class="btn-row">
         <button id="yesBtn" onclick="sayYes()">блять, с начала ты должна нажать на нет</button>
@@ -421,8 +421,10 @@ function dodge(e) {
     return;
   }
 
-  const dx = Math.random() * 200 - 100;
-  const dy = Math.random() * 70 - 35;
+  const maxDx = Math.min(100, window.innerWidth * 0.22);
+  const maxDy = Math.min(35, window.innerHeight * 0.05);
+  const dx = Math.random() * maxDx * 2 - maxDx;
+  const dy = Math.random() * maxDy * 2 - maxDy;
   noBtn.style.transform = `translate(${dx}px, ${dy}px)`;
 
   const idx = dodgeCount - 1;
@@ -451,10 +453,10 @@ function sayYes() {
 
 function showFinal(fromGiveUp) {
   const text = fromGiveUp
-    ? 'вот видишь, всё равно ты мой газ. Люблю тебя '
+    ? 'вот видишь, всё равно любовь победила ❤️'
     : (dodgeCount === 0
-        ? 'вот видишь, всё равно ты мой газ. Люблю тебя'
-        : `после ${dodgeCount} побегов кнопки «нет» — всё равно ты мой газ. Люблю тебя`);
+        ? 'я знал(а), что ты это скажешь 🎉'
+        : `после ${dodgeCount} побегов кнопки «нет» — ты всё равно здесь 🥰`);
 
   finalAnim.innerHTML = '';
   [...text].forEach((ch, i) => {
