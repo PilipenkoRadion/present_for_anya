@@ -351,7 +351,7 @@
         <button id="noBtn" onclick="dodge(event)" ontouchstart="dodge(event)">Нет</button>
       </div>
       <span class="easter-egg" id="egg" onclick="toggleSecret()">🤫 нажми сюда, если знаешь секрет</span>
-      <div class="secret-box" id="secretBox">ты лучшая девчонка в мире и я тебя люблю</div>
+      <div class="secret-box" id="secretBox">Ты сейчас нашёл(-ла) пасхалку, а не отговорку 😏</div>
     </div>
 
     <div class="final" id="finalScreen">
@@ -383,9 +383,9 @@ const funnyLines = [
   "Серьёзно, идти нахуй? 🙄",
   "Даже не пытайся, я холодная 😌",
   "Кнопка неуловима как Максим на самокате 🏃",
-  "быстрее ✋",
+  "Всё равно не поймаешь ✋",
   "Ладно, последний шанс...",
-  "портал в роблокс открыт",
+  "Так, стоп...",
 ];
 
 function makeHearts(n) {
@@ -421,8 +421,8 @@ function dodge(e) {
     return;
   }
 
-  const dx = Math.random() * 400 - 200;
-  const dy = Math.random() * 160 - 80;
+  const dx = Math.random() * 200 - 100;
+  const dy = Math.random() * 70 - 35;
   noBtn.style.transform = `translate(${dx}px, ${dy}px)`;
 
   const idx = dodgeCount - 1;
@@ -435,7 +435,7 @@ function dodge(e) {
 function giveUp() {
   gaveUp = true;
   noBtn.style.transform = 'translate(0, 0)';
-  noBtn.textContent = 'блять, ну всё, пора идти нахуй';
+  noBtn.textContent = 'блять, ну всё, сдаюсь';
   noBtn.style.pointerEvents = 'none';
   noBtn.style.background = '#e5e5ea';
 
@@ -451,10 +451,10 @@ function sayYes() {
 
 function showFinal(fromGiveUp) {
   const text = fromGiveUp
-    ? 'вот видишь, всё равно ты газ и немного холодная '
+    ? 'вот видишь, всё равно любовь победила ❤️'
     : (dodgeCount === 0
-        ? 'я знал(а), что ты это скажешь мне идти нахуй '
-        : `после ${dodgeCount} побегов кнопки «нет» — Максим всё равно приедет за тобой на самокате`);
+        ? 'я знал(а), что ты это скажешь 🎉'
+        : `после ${dodgeCount} побегов кнопки «нет» — ты всё равно здесь 🥰`);
 
   finalAnim.innerHTML = '';
   [...text].forEach((ch, i) => {
